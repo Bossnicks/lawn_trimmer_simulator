@@ -1,0 +1,393 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.25f1 (68ef2c4f8861) revision 6876972'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'ru' Physical Memory: 16149 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.3.25f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker1
+-projectPath
+C:/Users/HP/Флешка/lawn_trimmer_simulator/lawn_trimmer_simulator
+-logFile
+Logs/AssetImportWorker1.log
+-srvPort
+53253
+Successfully changed project path to: C:/Users/HP/Флешка/lawn_trimmer_simulator/lawn_trimmer_simulator
+C:/Users/HP/Флешка/lawn_trimmer_simulator/lawn_trimmer_simulator
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [13436] Host "[IP] 172.30.32.1 [Port] 0 [Flags] 2 [Guid] 404487949 [EditorId] 404487949 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-NFDA02C) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [13436] Host "[IP] 172.30.32.1 [Port] 0 [Flags] 2 [Guid] 404487949 [EditorId] 404487949 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-NFDA02C) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+Refreshing native plugins compatible for Editor in 59.83 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.25f1 (68ef2c4f8861)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.25f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/HP/Флешка/lawn_trimmer_simulator/lawn_trimmer_simulator/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce MX450 (ID=0x1f97)
+    Vendor:   NVIDIA
+    VRAM:     1920 MB
+    Driver:   31.0.15.4626
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.25f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.25f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.25f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56796
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.25f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.25f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.010472 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 60.43 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.638 seconds
+Domain Reload Profiling:
+	ReloadAssembly (639ms)
+		BeginReloadAssembly (114ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (425ms)
+			LoadAssemblies (111ms)
+			RebuildTransferFunctionScriptingTraits (1ms)
+			SetupTypeCache (99ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (28ms)
+			SetupLoadedEditorAssemblies (248ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (8ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (61ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (122ms)
+				ProcessInitializeOnLoadMethodAttributes (57ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.006139 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\HP\Флешка\lawn_trimmer_simulator\lawn_trimmer_simulator\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\HP\Флешка\lawn_trimmer_simulator\lawn_trimmer_simulator\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.46 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.074 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1074ms)
+		BeginReloadAssembly (109ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (18ms)
+		EndReloadAssembly (811ms)
+			LoadAssemblies (170ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (249ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (58ms)
+			SetupLoadedEditorAssemblies (301ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (9ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (74ms)
+				ProcessInitializeOnLoadAttributes (188ms)
+				ProcessInitializeOnLoadMethodAttributes (21ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 0.46 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3049 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 24 unused Assets / (113.6 KB). Loaded Objects now: 3510.
+Memory consumption went from 107.9 MB to 107.8 MB.
+Total: 2.831700 ms (FindLiveObjects: 0.221800 ms CreateObjectMapping: 0.095600 ms MarkObjects: 2.340000 ms  DeleteObjects: 0.173400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 5459.129262 seconds.
+  path: Assets/enviroment.fbx
+  artifactKey: Guid(00cad6f2d495e6c41af8f344b334dd2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/enviroment.fbx using Guid(00cad6f2d495e6c41af8f344b334dd2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b1899d033c87d13c886b6d8fedd1fa5') in 5.378694 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 568.453591 seconds.
+  path: Assets/enviroment.fbx
+  artifactKey: Guid(00cad6f2d495e6c41af8f344b334dd2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/enviroment.fbx using Guid(00cad6f2d495e6c41af8f344b334dd2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd72eeb22f17c27ecd8691643853cbb46') in 4.575204 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/trimmerMaterial.jpg
+  artifactKey: Guid(2601ea1eedd09cf46b1912b71bdb6150) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/trimmerMaterial.jpg using Guid(2601ea1eedd09cf46b1912b71bdb6150) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '632b3fbf677f9916288a1545f5cf1078') in 0.128549 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.023764 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\HP\Флешка\lawn_trimmer_simulator\lawn_trimmer_simulator\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\HP\Флешка\lawn_trimmer_simulator\lawn_trimmer_simulator\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.66 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.736 seconds
+Domain Reload Profiling:
+	ReloadAssembly (3738ms)
+		BeginReloadAssembly (582ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (19ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (116ms)
+		EndReloadAssembly (2820ms)
+			LoadAssemblies (376ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (1030ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (168ms)
+			SetupLoadedEditorAssemblies (1189ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (27ms)
+				SetLoadedEditorAssemblies (3ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (276ms)
+				ProcessInitializeOnLoadAttributes (762ms)
+				ProcessInitializeOnLoadMethodAttributes (79ms)
+				AfterProcessingInitializeOnLoad (39ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (28ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 5.22 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3044 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 17 unused Assets / (79.9 KB). Loaded Objects now: 3560.
+Memory consumption went from 119.1 MB to 119.0 MB.
+Total: 11.850300 ms (FindLiveObjects: 0.613900 ms CreateObjectMapping: 0.666900 ms MarkObjects: 10.334200 ms  DeleteObjects: 0.231500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 4230.602738 seconds.
+  path: Assets/Woods - Plastics.Finish Carpentry.Wood.Red Oak.jpg
+  artifactKey: Guid(eb0fe66980ec32945a90e27c448a16f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Woods - Plastics.Finish Carpentry.Wood.Red Oak.jpg using Guid(eb0fe66980ec32945a90e27c448a16f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24779e842040a0c5706a800a76d160b6') in 0.091753 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 35.952218 seconds.
+  path: Assets/Masonry.Unit Masonry.Brick.Modular.Herringbone.2.bump.png
+  artifactKey: Guid(26440c6b7302b4c458b296d8de75df15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Masonry.Unit Masonry.Brick.Modular.Herringbone.2.bump.png using Guid(26440c6b7302b4c458b296d8de75df15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51574e06c7219d688994b3fa8f6e26a2') in 0.025443 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000047 seconds.
+  path: Assets/wood_birch_color.jpg
+  artifactKey: Guid(1eea69fc088c4134a9f353e7f51b3af3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/wood_birch_color.jpg using Guid(1eea69fc088c4134a9f353e7f51b3af3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37ee710fa7685603bd143130f421a122') in 0.023072 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000054 seconds.
+  path: Assets/red_oak_wild_bays.png
+  artifactKey: Guid(97a36dd5a20d6824baad9a858f7331ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/red_oak_wild_bays.png using Guid(97a36dd5a20d6824baad9a858f7331ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b44d794ada7e8fe62c81047ffc4a2e43') in 0.019290 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/SiteWork.Planting.Grass.Bluegrass1.jpg
+  artifactKey: Guid(bf6354fcc76ac5c4d9d0c1300eca28b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SiteWork.Planting.Grass.Bluegrass1.jpg using Guid(bf6354fcc76ac5c4d9d0c1300eca28b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0910c982ce7b877562b8e62a1253ee1') in 0.022311 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 39.313842 seconds.
+  path: Assets/enviroment.fbx
+  artifactKey: Guid(00cad6f2d495e6c41af8f344b334dd2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/enviroment.fbx using Guid(00cad6f2d495e6c41af8f344b334dd2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e10ddb4492f0c993faffb15e02c52eec') in 6.761284 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/玫瑰叶2.1.jpg
+  artifactKey: Guid(22ded5f84b175d840bf89f872ececf0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/玫瑰叶2.1.jpg using Guid(22ded5f84b175d840bf89f872ececf0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f4ba2331c91250b43e0c0d4f77c18ce3') in 0.030068 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/玫瑰叶2.2.jpg
+  artifactKey: Guid(d7cebd49c07839947a1a3acc6e516f2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/玫瑰叶2.2.jpg using Guid(d7cebd49c07839947a1a3acc6e516f2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e45c23f84d870a38d4583c715ccb00e3') in 0.017520 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000064 seconds.
+  path: Assets/玫瑰1.jpg
+  artifactKey: Guid(8b8952e3e95b64445a309118072f6c7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/玫瑰1.jpg using Guid(8b8952e3e95b64445a309118072f6c7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0450ebcc06ff1164128f0e1fc62ecdce') in 0.017646 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 23.132258 seconds.
+  path: Assets/玫瑰叶2.1B.jpg
+  artifactKey: Guid(0a3aaa18b1d7bfc4cadd16b748760fe0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/玫瑰叶2.1B.jpg using Guid(0a3aaa18b1d7bfc4cadd16b748760fe0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ddc8beec1a4763146c1bba1d5298d56f') in 0.022169 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000047 seconds.
+  path: Assets/玫瑰叶2.2B.jpg
+  artifactKey: Guid(936612d9ef3b46a498f3cb012f1ae985) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/玫瑰叶2.2B.jpg using Guid(936612d9ef3b46a498f3cb012f1ae985) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1508d463044e6afa6f7c9d3a0bccecf3') in 0.016809 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 89.635305 seconds.
+  path: Assets/enviroment.fbx
+  artifactKey: Guid(00cad6f2d495e6c41af8f344b334dd2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/enviroment.fbx using Guid(00cad6f2d495e6c41af8f344b334dd2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71323b1f9994172851e5d565960e2844') in 8.586723 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 126.640582 seconds.
+  path: Assets/enviroment.dae
+  artifactKey: Guid(f61a180c67bc2ae4b86c914c1d6dc1b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/enviroment.dae using Guid(f61a180c67bc2ae4b86c914c1d6dc1b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6625d96764059b2882fa668f3dbeb2de') in 7.737245 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.299508 seconds.
+  path: Assets/enviroment.fbx
+  artifactKey: Guid(00cad6f2d495e6c41af8f344b334dd2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/enviroment.fbx using Guid(00cad6f2d495e6c41af8f344b334dd2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b2a7e4949f48e5f01ff78b78986629f') in 4.111752 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.312153 seconds.
+  path: Assets/AM126_058_v1_02-Map__6_0_5 1.jpg
+  artifactKey: Guid(db96cf8c7acaf4a4da4f893431f2a226) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AM126_058_v1_02-Map__6_0_5 1.jpg using Guid(db96cf8c7acaf4a4da4f893431f2a226) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c566d0b9046397e99c18b110824c811') in 0.029944 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1855.238057 seconds.
+  path: Assets/srednyya_lezka.mat
+  artifactKey: Guid(84070c3c6a9f77843bb02c4852d2b66c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/srednyya_lezka.mat using Guid(84070c3c6a9f77843bb02c4852d2b66c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '215e9ded60ceebbc95b227cabb5bda5d') in 0.030409 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 229.747864 seconds.
+  path: Assets/玫瑰叶2.2 1.jpg
+  artifactKey: Guid(a3390653a28560e45a22523a6d2bd076) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/玫瑰叶2.2 1.jpg using Guid(a3390653a28560e45a22523a6d2bd076) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b27b58a63567fd330ce5a0e4870cb88') in 0.015874 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 330.759965 seconds.
+  path: Assets/enviroment.fbx
+  artifactKey: Guid(00cad6f2d495e6c41af8f344b334dd2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/enviroment.fbx using Guid(00cad6f2d495e6c41af8f344b334dd2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea0df091a3414a0ba14f541422d54f83') in 4.373812 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1486.424322 seconds.
+  path: Assets/玫瑰叶2.2.png
+  artifactKey: Guid(6bd48289d25500e4c99a6776d196f91a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/玫瑰叶2.2.png using Guid(6bd48289d25500e4c99a6776d196f91a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e51f8d6bfb08c99dbd9db003e5ad571') in 0.020090 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 584.944469 seconds.
+  path: Assets/Materials/snapedit_1716144687839.mat
+  artifactKey: Guid(04e526a2ed247e64e9557c8d6cb6e3bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/snapedit_1716144687839.mat using Guid(04e526a2ed247e64e9557c8d6cb6e3bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '45707bd477e4ff4ebb7a6cd3070ce832') in 0.021046 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Materials/玫瑰叶2.1-removebg-preview.mat
+  artifactKey: Guid(89c8fc19364485443bdc8418c22114a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/玫瑰叶2.1-removebg-preview.mat using Guid(89c8fc19364485443bdc8418c22114a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '19537c51c0211f5ec862ab11abdd6689') in 0.027596 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Materials/玫瑰叶2.1B.mat
+  artifactKey: Guid(b281d74eb2b2d6b41b27d6f05dfc5a90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/玫瑰叶2.1B.mat using Guid(b281d74eb2b2d6b41b27d6f05dfc5a90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '730747cc5d2982dee2e8e709aec5961f') in 0.020644 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Materials/玫瑰叶2.1.mat
+  artifactKey: Guid(0309f2908dfc3514892fa110b9e5d2cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/玫瑰叶2.1.mat using Guid(0309f2908dfc3514892fa110b9e5d2cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a25860ff305944f37edffc0bdcd8f872') in 0.022350 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1855.623814 seconds.
+  path: Assets/Materials/SiteWork.Planting.Grass.Bluegrass1.mat
+  artifactKey: Guid(8b00cd68cd5f6b64ebdec902ca07de1e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/SiteWork.Planting.Grass.Bluegrass1.mat using Guid(8b00cd68cd5f6b64ebdec902ca07de1e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c6e29f97361c50acc5d41054b7bb9f90') in 0.021858 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Materials/snapedit_1716144687839.mat
+  artifactKey: Guid(04e526a2ed247e64e9557c8d6cb6e3bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/snapedit_1716144687839.mat using Guid(04e526a2ed247e64e9557c8d6cb6e3bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '600d544012a0067137be7e9f18401cd6') in 0.017645 seconds 
