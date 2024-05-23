@@ -10,7 +10,9 @@ namespace Assets
     public static class TaskController
     {
         public static TaskControllerEnum currentState = TaskControllerEnum.Beginning;
+        public static GameObject hint = GameObject.Find("Hints");
         public static GameObject selectedObject;
+        
 
         public enum TaskControllerEnum
         {

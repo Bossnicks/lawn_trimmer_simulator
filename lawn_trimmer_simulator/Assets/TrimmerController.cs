@@ -4,7 +4,7 @@ public class TrimmerController : MonoBehaviour
 {
     private Transform trimmerTransform;
     private bool isRotating = false;
-    private bool rotateForward = true; // Переменная для управления направлением поворота
+    private bool rotateForward = false; // Переменная для управления направлением поворота
     public float rotationSpeed = 60f; // Скорость вращения
     public float moveSpeed = 1f; // Скорость передвижения
     private Vector3 initialPosition;

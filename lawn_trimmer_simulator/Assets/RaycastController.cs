@@ -1,5 +1,7 @@
 using Assets;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using static Assets.TaskController;
 
 namespace Assets
@@ -9,6 +11,13 @@ namespace Assets
         public float rayDistance = 100f; // Дистанция луча
         private string clickedObjectName;
         private TrimmerController trimmerController;
+        public static TextMeshProUGUI hintText;
+        private Camera playerCamera;
+        private Camera explorerCamera;
+        private GameObject trimmerDescriptionMenu;
+        private FirstPersonController firstPersonCharacter;
+        private Sprite crossHairImage;
+        private Image reticle;
 
         GameObject trimmer;
         //Transform trimmerTransform;
@@ -17,6 +26,16 @@ namespace Assets
 
         private void Start()
         {
+            firstPersonCharacter = GameObject.Find("FirstPersonController").GetComponent<FirstPersonController>();
+            reticle = GameObject.Find("Reticle").GetComponent<Image>();
+            trimmerDescriptionMenu = GameObject.Find("MenuBackground");
+            trimmerDescriptionMenu.SetActive(false);
+            explorerCamera = GameObject.Find("explorerCamera").GetComponent<Camera>();
+            playerCamera = GameObject.Find("PlayerCamera").GetComponent<Camera>();
+            explorerCamera.enabled = false;
+            playerCamera.enabled = true;
+            hintText = hint.GetComponent<TextMeshProUGUI>();
+            hintText.text = "Идите на задний двор и возьмите триммер";
             trimmer = GameObject.Find("Trimmer");
             trimmerController = trimmer.GetComponent<TrimmerController>();
         }
@@ -35,34 +54,44 @@ namespace Assets
 
         void PerformRaycastLeftClick()
         {
-            Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+            Camera activeCamera = playerCamera.enabled ? playerCamera : explorerCamera;
+            Vector3 rayVector = activeCamera == playerCamera ? new Vector3(Screen.width / 2, Screen.height / 2, 0) : Input.mousePosition;
+            Ray ray = activeCamera.ScreenPointToRay(rayVector);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, rayDistance))
             {
                 clickedObjectName = hit.collider.gameObject.name;
             }
 
-            if (clickedObjectName == "Trimmer")
+            if (TrimmerClickChecker(clickedObjectName))
             {
                 if(currentState == TaskControllerEnum.Beginning)
                 {
+                    crossHairImage = firstPersonCharacter.crosshairImage;
+                    currentState = TaskControllerEnum.TrimmerIsInPreparatoryState;
                     selectedObject = trimmer;
-                    //trimmerControllertrimmerController.Rotate(0, 0, 0);
+                    hintText.text = "Откройте крышку режущей головки триммера";
+                    trimmerController.Rotate();
+                    playerCamera.enabled = false;
+                    explorerCamera.enabled = true;
+                    trimmerDescriptionMenu.SetActive(true);
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                    firstPersonCharacter.playerCanMove = false;
+                    reticle.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
+                    
+
                 }
             }
         }
         void PerformRaycastRightClick()
         {
-            Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, rayDistance))
-            {
-                clickedObjectName = hit.collider.gameObject.name;
-            }
-            if (TrimmerClickChecker(clickedObjectName))
-            {
-                trimmerController.Rotate();
-            }
+            //Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+            //RaycastHit hit;
+            //if (Physics.Raycast(ray, out hit, rayDistance))
+            //{
+            //    clickedObjectName = hit.collider.gameObject.name;
+            //}
         }
         bool TrimmerClickChecker(string clickedObject)
         {
@@ -70,7 +99,6 @@ namespace Assets
                 "activate_button", "additional_handle", "barbell", "electric_motor",
                 "handle", "corpusKatushki", "osnovaKatushki", "protective_box"
             };
-            Debug.Log(clickedObjectName);
             return System.Array.IndexOf(validObjectNames, clickedObject) >= 0;
         }
     }
