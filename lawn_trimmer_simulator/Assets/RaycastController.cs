@@ -70,7 +70,7 @@ namespace Assets
                     crossHairImage = firstPersonCharacter.crosshairImage;
                     currentState = TaskControllerEnum.TrimmerIsInPreparatoryState;
                     selectedObject = trimmer;
-                    hintText.text = "Откройте крышку режущей головки триммера";
+                    hintText.text = Backlight.HintToState();
                     trimmerController.Rotate();
                     playerCamera.enabled = false;
                     explorerCamera.enabled = true;
@@ -86,6 +86,7 @@ namespace Assets
         }
         void PerformRaycastRightClick()
         {
+
             //Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
             //RaycastHit hit;
             //if (Physics.Raycast(ray, out hit, rayDistance))
