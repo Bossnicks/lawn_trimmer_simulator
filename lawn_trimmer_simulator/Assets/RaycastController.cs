@@ -18,6 +18,8 @@ namespace Assets
         private FirstPersonController firstPersonCharacter;
         private Sprite crossHairImage;
         private Image reticle;
+        GameObject trainLezka;
+
 
         GameObject trimmer;
         //Transform trimmerTransform;
@@ -26,6 +28,7 @@ namespace Assets
 
         private void Start()
         {
+            trainLezka = GameObject.Find("LezkaSrednyaTrainCopy");
             firstPersonCharacter = GameObject.Find("FirstPersonController").GetComponent<FirstPersonController>();
             reticle = GameObject.Find("Reticle").GetComponent<Image>();
             trimmerDescriptionMenu = GameObject.Find("MenuBackground");
@@ -48,7 +51,7 @@ namespace Assets
             }
             if (Input.GetMouseButtonDown(1))
             {
-                PerformRaycastRightClick();
+                //PerformRaycastRightClick();
             }
         }
 
@@ -65,7 +68,7 @@ namespace Assets
 
             if (TrimmerClickChecker(clickedObjectName))
             {
-                if(currentState == TaskControllerEnum.Beginning)
+                if (currentState == TaskControllerEnum.Beginning)
                 {
                     crossHairImage = firstPersonCharacter.crosshairImage;
                     currentState = TaskControllerEnum.TrimmerIsInPreparatoryState;
@@ -79,28 +82,56 @@ namespace Assets
                     Cursor.visible = true;
                     firstPersonCharacter.playerCanMove = false;
                     reticle.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
-                    
+
 
                 }
             }
-        }
-        void PerformRaycastRightClick()
-        {
+            if (currentState == TaskControllerEnum.TrimmerIsInPreparatoryState)
+            {
+                if(currentStudyState == StudyTaskControllerEnum.OpenKatushka && clickedObjectName == "corpusKatushki")
+                {
+                    AnimationController.BeginAnimate(clickedObjectName);
+                    currentStudyState = StudyTaskControllerEnum.TakeLezka;
+                    Debug.Log("dasdsadasdas");
+                }
+                if (currentStudyState == StudyTaskControllerEnum.TakeLezka && clickedObjectName == "LezkaSrednyaTrainCopy")
+                {
+                    Debug.Log("assda");
+                    trainLezka.transform.position = new Vector3(100, 100, 100);
+                    trainLezka.transform.localScale = trainLezka.transform.localScale / 1.2f;
+                    currentStudyState = StudyTaskControllerEnum.PutLezka;
 
-            //Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-            //RaycastHit hit;
-            //if (Physics.Raycast(ray, out hit, rayDistance))
-            //{
-            //    clickedObjectName = hit.collider.gameObject.name;
-            //}
-        }
-        bool TrimmerClickChecker(string clickedObject)
-        {
-            string[] validObjectNames = {
+                }
+                if (currentStudyState == StudyTaskControllerEnum.PutLezka && clickedObjectName == "osnovaKatushki")
+                {
+                    trainLezka.transform.rotation = Quaternion.Euler(0, 0, 0);
+                    trainLezka.transform.position = GameObject.Find(clickedObjectName).transform.position + new Vector3(0, 0, -0.0003f);
+                    currentStudyState = StudyTaskControllerEnum.CloseKatushka;
+                }
+                if (currentStudyState == StudyTaskControllerEnum.CloseKatushka && clickedObjectName == "corpusKatushki")
+                {
+                    AnimationController.BeginAnimate(clickedObjectName);
+                }
+
+            }
+            void PerformRaycastRightClick()
+            {
+
+                //Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+                //RaycastHit hit;
+                //if (Physics.Raycast(ray, out hit, rayDistance))
+                //{
+                //    clickedObjectName = hit.collider.gameObject.name;
+                //}
+            }
+            bool TrimmerClickChecker(string clickedObject)
+            {
+                string[] validObjectNames = {
                 "activate_button", "additional_handle", "barbell", "electric_motor",
                 "handle", "corpusKatushki", "osnovaKatushki", "protective_box"
             };
-            return System.Array.IndexOf(validObjectNames, clickedObject) >= 0;
+                return System.Array.IndexOf(validObjectNames, clickedObject) >= 0;
+            }
         }
     }
 }
