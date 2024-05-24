@@ -19,6 +19,7 @@ namespace Assets
         private Sprite crossHairImage;
         private Image reticle;
         GameObject trainLezka;
+        GameObject osnovaKatushki;
 
 
         GameObject trimmer;
@@ -29,6 +30,7 @@ namespace Assets
         private void Start()
         {
             trainLezka = GameObject.Find("LezkaSrednyaTrainCopy");
+            osnovaKatushki = GameObject.Find("osnovaKatushki");
             firstPersonCharacter = GameObject.Find("FirstPersonController").GetComponent<FirstPersonController>();
             reticle = GameObject.Find("Reticle").GetComponent<Image>();
             trimmerDescriptionMenu = GameObject.Find("MenuBackground");
@@ -65,7 +67,7 @@ namespace Assets
             {
                 clickedObjectName = hit.collider.gameObject.name;
             }
-
+            Debug.Log(clickedObjectName);
             if (TrimmerClickChecker(clickedObjectName))
             {
                 if (currentState == TaskControllerEnum.Beginning)
@@ -82,6 +84,22 @@ namespace Assets
                     Cursor.visible = true;
                     firstPersonCharacter.playerCanMove = false;
                     reticle.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
+
+
+                }
+                if(currentState == TaskControllerEnum.TrimmerIsFilledWithFishingLine)
+                {
+                    firstPersonCharacter.crosshairImage = crossHairImage;
+                    currentState = TaskControllerEnum.MowingHasBegun;
+                    trimmerController.Rotate();
+                    playerCamera.enabled = true;
+                    explorerCamera.enabled = false;
+                    trimmerDescriptionMenu.SetActive(false);
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
+                    firstPersonCharacter.playerCanMove = true;
+                    reticle.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+
 
 
                 }
@@ -111,6 +129,17 @@ namespace Assets
                 if (currentStudyState == StudyTaskControllerEnum.CloseKatushka && clickedObjectName == "corpusKatushki")
                 {
                     AnimationController.BeginAnimate(clickedObjectName);
+                    currentStudyState = StudyTaskControllerEnum.RollingOsnova;
+                    Debug.Log("bad");
+                }
+                if (currentStudyState == StudyTaskControllerEnum.RollingOsnova && clickedObjectName == "LezkaSrednyaTrainCopy")
+                {
+                    Debug.Log("good");
+                    Instantiate(Resources.Load<GameObject>("Prefabs/SrednyaLezkaPrefab"), osnovaKatushki.transform.position, Quaternion.Euler(90, 0, 180));
+                    Instantiate(Resources.Load<GameObject>("Prefabs/SrednyaLezkaPrefab"), osnovaKatushki.transform.position, Quaternion.Euler(-90,-270, 90));
+                    currentState = TaskControllerEnum.TrimmerIsFilledWithFishingLine;
+                    //todo
+                    //animate of lezka
                 }
 
             }

@@ -30,7 +30,8 @@ namespace Assets
             OpenKatushka,
             TakeLezka,
             PutLezka,
-            CloseKatushka
+            CloseKatushka,
+            RollingOsnova
         }
     }
 }
