@@ -10,7 +10,7 @@ namespace Assets
 {
     public static class TaskController
     {
-        public static TaskControllerEnum currentState = TaskControllerEnum.Beginning;
+        public static TaskControllerEnum currentState = TaskControllerEnum.MowingHasBegun;
         public static StudyTaskControllerEnum currentStudyState = StudyTaskControllerEnum.OpenKatushka;
         public static GameObject hint = GameObject.Find("Hints");
         public static GameObject selectedObject;

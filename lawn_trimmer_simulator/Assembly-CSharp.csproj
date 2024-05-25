@@ -68,13 +68,15 @@
     <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
     <Compile Include="Assets\TaskController.cs" />
     <Compile Include="Assets\CameraController.cs" />
+    <Compile Include="Assets\GameController.cs" />
     <Compile Include="Assets\TriggerForTrimmer.cs" />
     <Compile Include="Assets\TrimmerController.cs" />
+    <Compile Include="Assets\MotorWithSound.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\CameraMovement.cs" />
     <Compile Include="Assets\RaycastController.cs" />
-    <Compile Include="Assets\MotorWithSound.cs" />
+    <Compile Include="Assets\KatushkaController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

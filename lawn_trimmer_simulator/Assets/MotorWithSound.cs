@@ -5,6 +5,7 @@ public class MotorWithSound : MonoBehaviour
 {
     public float rotationSpeed = 100f; // Скорость вращения в градусах в секунду
     private AudioSource audioSource;
+    public static bool trimmerIsWorking = false;
 
     void Start()
     {
@@ -19,6 +20,7 @@ public class MotorWithSound : MonoBehaviour
     {
         if (Input.GetMouseButton(1) && currentState == TaskControllerEnum.MowingHasBegun) // Проверяем, удерживается ли правая кнопка мыши
         {
+            trimmerIsWorking = true;
             if (!audioSource.isPlaying)
             {
                 audioSource.Play();
@@ -26,6 +28,7 @@ public class MotorWithSound : MonoBehaviour
         }
         else
         {
+            trimmerIsWorking = false;
             if (audioSource.isPlaying)
             {
                 audioSource.Stop();

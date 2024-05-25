@@ -22,6 +22,7 @@ namespace Assets
         GameObject osnovaKatushki;
         GameObject firstLezka;
         GameObject secondLezka;
+        GameObject statistic;
         private float rotationSpeed = 10f; 
 
 
@@ -38,6 +39,8 @@ namespace Assets
             firstPersonCharacter = GameObject.Find("FirstPersonController").GetComponent<FirstPersonController>();
             reticle = GameObject.Find("Reticle").GetComponent<Image>();
             trimmerDescriptionMenu = GameObject.Find("MenuBackground");
+            statistic = GameObject.Find("StatisticBackground");
+            statistic.SetActive(false);
             trimmerDescriptionMenu.SetActive(false);
             explorerCamera = GameObject.Find("explorerCamera").GetComponent<Camera>();
             playerCamera = GameObject.Find("PlayerCamera").GetComponent<Camera>();
@@ -96,6 +99,7 @@ namespace Assets
                     trimmer.transform.parent = firstPersonCharacter.transform;
                     trimmer.transform.localPosition = new Vector3(0f, -0.3f, 0.8f);
                     trimmer.transform.localRotation = Quaternion.Euler(-90, 0, -88);
+                    statistic.SetActive(true);
                 }
                 if (currentState == TaskControllerEnum.TrimmerIsFilledWithFishingLine)
                 {
@@ -161,7 +165,7 @@ namespace Assets
         {
             if(currentState == TaskControllerEnum.MowingHasBegun)
             {
-                GameObject.Find("katushka").transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
+                GameObject.Find("katushka").transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
 
             }
 
