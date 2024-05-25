@@ -14,26 +14,48 @@ public class KatushkaController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Rose"))
+        if(GameController.lezkaInKatushka && MotorWithSound.trimmerIsWorking)
         {
-            gameController.ApplyFlowerPenalty();
-            gameController.DecreaseDurability(10);
-            Destroy(other.gameObject);
-        }
-        if (other.CompareTag("Fornios"))
-        {
-            gameController.DecreaseDurability(20);
-            Destroy(other.gameObject);
-        }
-        if (other.CompareTag("Kistochka"))
-        {
-            gameController.DecreaseDurability(20);
-            Destroy(other.gameObject);
-        }
-        if (other.CompareTag("Lopuh"))
-        {
-            gameController.DecreaseDurability(20);
-            Destroy(other.gameObject);
+            if (other.CompareTag("Rose"))
+            {
+                gameController.DecreaseDurability(5);
+                gameController.ApplyFlowerPenalty();
+                Debug.Log("rose destroy");
+                Destroy(other.gameObject);
+            }
+            if (other.CompareTag("Fornios"))
+            {
+                if (gameController.currentLineType == GameController.LineType.Strong || gameController.currentLineType == GameController.LineType.Medium)
+                {
+                    gameController.DecreaseDurability(10);
+                }
+                else
+                {
+                    gameController.DecreaseDurability(30);
+                }
+                Destroy(other.gameObject);
+            }
+            if (other.CompareTag("Kistochka"))
+            {
+                gameController.DecreaseDurability(5);
+                Destroy(other.gameObject);
+            }
+            if (other.CompareTag("Lopuh"))
+            {
+                if (gameController.currentLineType == GameController.LineType.Strong)
+                {
+                    gameController.DecreaseDurability(40);
+                }
+                else if (gameController.currentLineType == GameController.LineType.Medium)
+                {
+                    gameController.DecreaseDurability(120);
+                }
+                else
+                {
+                    gameController.DecreaseDurability(360);
+                }
+                Destroy(other.gameObject);
+            }
         }
     }
 }

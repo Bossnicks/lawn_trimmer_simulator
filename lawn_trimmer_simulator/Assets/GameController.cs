@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using Assets;
+using System.Runtime.InteropServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,9 +7,9 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     public static GameController Instance;
-    public static bool lezkaInKatushka;
+    public static bool lezkaInKatushka = true;
     public enum LineType { Weak, Medium, Strong }
-    private LineType currentLineType;
+    public LineType currentLineType;
 
     private float lineDurability;
     private float maxDurability;
@@ -53,16 +54,13 @@ public class GameController : MonoBehaviour
         switch (currentLineType)
         {
             case LineType.Weak:
-                lineTypeText.text = "Слабая";
-                maxDurability = 100f;
+                maxDurability = 500f;
                 break;
             case LineType.Medium:
-                lineTypeText.text = "Средняя";
-                maxDurability = 75f;
+                maxDurability = 200f;
                 break;
             case LineType.Strong:
-                lineTypeText.text = "Сильная";
-                maxDurability = 50f;
+                maxDurability = 100f;
                 break;
         }
 
@@ -75,9 +73,9 @@ public class GameController : MonoBehaviour
         lineDurability -= amount;
         if (lineDurability <= 0)
         {
-            usedSpools++;
+            lineDurability = 0;
             lezkaInKatushka = false;
-            //Destroy ()
+            TaskController.currentState = TaskController.TaskControllerEnum.MowingHasBeenSuspended;
         }
         UpdateUI();
     }

@@ -119,7 +119,39 @@ namespace Assets
                 }
                 
             }
-            
+            if (currentState == TaskControllerEnum.MowingHasBeenSuspended)
+            {
+                Destroy(firstLezka);
+                Destroy(secondLezka);
+
+                if (GameObject.Find(clickedObjectName).tag == "LezkaOstraya")
+                {
+                    firstLezka = Instantiate(Resources.Load<GameObject>("Prefabs/OstrayaLezkaPrefab"), osnovaKatushki.transform.position, Quaternion.Euler(90, 0, 180));
+                    secondLezka = Instantiate(Resources.Load<GameObject>("Prefabs/OstrayaLezkaPrefab"), osnovaKatushki.transform.position, Quaternion.Euler(-90, -270, 90));
+                }
+                if (GameObject.Find(clickedObjectName).tag == "LezkaSlabaya")
+                {
+                    firstLezka = Instantiate(Resources.Load<GameObject>("Prefabs/SlabayaLezkaPrefab"), osnovaKatushki.transform.position, Quaternion.Euler(90, 0, 180));
+                    secondLezka = Instantiate(Resources.Load<GameObject>("Prefabs/SlabayaLezkaPrefab"), osnovaKatushki.transform.position, Quaternion.Euler(-90, -270, 90));
+                }
+                if (GameObject.Find(clickedObjectName).tag == "LezkaSrednya")
+                {
+                    firstLezka = Instantiate(Resources.Load<GameObject>("Prefabs/SrednyaLezkaPrefab"), osnovaKatushki.transform.position, Quaternion.Euler(90, 0, 180));
+                    secondLezka = Instantiate(Resources.Load<GameObject>("Prefabs/SrednyaLezkaPrefab"), osnovaKatushki.transform.position, Quaternion.Euler(-90, -270, 90));
+                }
+                
+                firstLezka.transform.parent = osnovaKatushki.transform;
+                secondLezka.transform.parent = osnovaKatushki.transform;
+
+                trimmer.transform.localPosition = new Vector3(0f, -0.3f, 0.8f);
+                trimmer.transform.localRotation = Quaternion.Euler(-90, 0, -88);
+
+                if (secondLezka != null && firstLezka != null)
+                {
+                    GameController.lezkaInKatushka = true;
+                    currentState = TaskControllerEnum.MowingHasBegun;
+                }
+            }
             if (currentState == TaskControllerEnum.TrimmerIsInPreparatoryState)
             {
                 if(currentStudyState == StudyTaskControllerEnum.OpenKatushka && clickedObjectName == "corpusKatushki")
@@ -166,7 +198,11 @@ namespace Assets
             if(currentState == TaskControllerEnum.MowingHasBegun)
             {
                 GameObject.Find("katushka").transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
-
+            }
+            if(currentState == TaskControllerEnum.MowingHasBeenSuspended)
+            {
+                trimmer.transform.localPosition = new Vector3(-0.7f, 0f, 0.7f);
+                trimmer.transform.localRotation = Quaternion.Euler(-180, 120, -88);
             }
 
             //Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));

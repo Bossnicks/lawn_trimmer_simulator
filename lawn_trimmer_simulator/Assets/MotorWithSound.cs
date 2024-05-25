@@ -18,7 +18,7 @@ public class MotorWithSound : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(1) && currentState == TaskControllerEnum.MowingHasBegun) // Проверяем, удерживается ли правая кнопка мыши
+        if (Input.GetMouseButton(1) && currentState == TaskControllerEnum.MowingHasBegun)
         {
             trimmerIsWorking = true;
             if (!audioSource.isPlaying)
