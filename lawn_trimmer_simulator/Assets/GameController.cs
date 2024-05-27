@@ -7,15 +7,18 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     public static GameController Instance;
-    public static bool lezkaInKatushka = true;
     public enum LineType { Weak, Medium, Strong }
     public LineType currentLineType;
+    public static int sumOstraya = 0;
+    public static int sumSrednya = 0;
+    public static int sumSlabaya = 0;
 
-    private float lineDurability;
-    private float maxDurability;
-    private int usedSpools = 1;
+
+    public float lineDurability;
+    public float maxDurability;
+    public int usedSpools = 1;
     private int flowerPenalty = 10;
-    private int score = 0;
+    public int score = 0;
 
     private TextMeshProUGUI lineStatusText;
     private TextMeshProUGUI scoreText;
@@ -74,8 +77,8 @@ public class GameController : MonoBehaviour
         if (lineDurability <= 0)
         {
             lineDurability = 0;
-            lezkaInKatushka = false;
             TaskController.currentState = TaskController.TaskControllerEnum.MowingHasBeenSuspended;
+
         }
         UpdateUI();
     }
@@ -112,7 +115,7 @@ public class GameController : MonoBehaviour
         UpdateUI();
     }
 
-    private void UpdateUI()
+    public void UpdateUI()
     {
         lineStatusText.text = $"Line Durability: {lineDurability}/{maxDurability}";
         scoreText.text = $"Score: {score}";

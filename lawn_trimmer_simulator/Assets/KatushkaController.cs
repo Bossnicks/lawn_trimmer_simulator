@@ -1,3 +1,4 @@
+using Assets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,14 +15,17 @@ public class KatushkaController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(GameController.lezkaInKatushka && MotorWithSound.trimmerIsWorking)
+        if(MotorWithSound.trimmerIsWorking && TaskController.currentState == TaskController.TaskControllerEnum.MowingHasBegun)
         {
             if (other.CompareTag("Rose"))
             {
                 gameController.DecreaseDurability(5);
                 gameController.ApplyFlowerPenalty();
                 Debug.Log("rose destroy");
-                Destroy(other.gameObject);
+                if (TaskController.currentState == TaskController.TaskControllerEnum.MowingHasBegun)
+                {
+                    Destroy(other.gameObject);
+                }
             }
             if (other.CompareTag("Fornios"))
             {
@@ -33,12 +37,18 @@ public class KatushkaController : MonoBehaviour
                 {
                     gameController.DecreaseDurability(30);
                 }
-                Destroy(other.gameObject);
+                if (TaskController.currentState == TaskController.TaskControllerEnum.MowingHasBegun)
+                {
+                    Destroy(other.gameObject);
+                }
             }
             if (other.CompareTag("Kistochka"))
             {
                 gameController.DecreaseDurability(5);
-                Destroy(other.gameObject);
+                if (TaskController.currentState == TaskController.TaskControllerEnum.MowingHasBegun)
+                {
+                    Destroy(other.gameObject);
+                }
             }
             if (other.CompareTag("Lopuh"))
             {
@@ -54,7 +64,10 @@ public class KatushkaController : MonoBehaviour
                 {
                     gameController.DecreaseDurability(360);
                 }
-                Destroy(other.gameObject);
+                if(TaskController.currentState == TaskController.TaskControllerEnum.MowingHasBegun)
+                {
+                    Destroy(other.gameObject);
+                }
             }
         }
     }

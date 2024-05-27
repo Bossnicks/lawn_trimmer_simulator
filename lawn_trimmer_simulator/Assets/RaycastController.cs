@@ -23,7 +23,9 @@ namespace Assets
         GameObject firstLezka;
         GameObject secondLezka;
         GameObject statistic;
-        private float rotationSpeed = 10f; 
+        private static GameController.LineType newType;
+        private float rotationSpeed = 10f;
+        private bool study = true;
 
 
         GameObject trimmer;
@@ -62,6 +64,7 @@ namespace Assets
             {
                 PerformRaycastRightClick();
             }
+            
         }
 
         void PerformRaycastLeftClick()
@@ -94,12 +97,13 @@ namespace Assets
 
 
                 }
-                if (currentState == TaskControllerEnum.MowingHasBegun)
+                if (currentState == TaskControllerEnum.MowingHasBegun && study)
                 {
                     trimmer.transform.parent = firstPersonCharacter.transform;
                     trimmer.transform.localPosition = new Vector3(0f, -0.3f, 0.8f);
                     trimmer.transform.localRotation = Quaternion.Euler(-90, 0, -88);
                     statistic.SetActive(true);
+                    //study = false;
                 }
                 if (currentState == TaskControllerEnum.TrimmerIsFilledWithFishingLine)
                 {
@@ -121,35 +125,74 @@ namespace Assets
             }
             if (currentState == TaskControllerEnum.MowingHasBeenSuspended)
             {
-                Destroy(firstLezka);
-                Destroy(secondLezka);
+                //Debug.Log(firstLezka);
+                //Debug.Log(secondLezka);
+                //Debug.Log(GameController.sumOstraya);
+                //Debug.Log(GameController.sumSrednya);
+                //Debug.Log(GameController.sumSlabaya);
+
+                //if(study)
+                //{
+                //    Destroy(firstLezka);
+                //    Destroy(secondLezka);
+                //}
+
 
                 if (GameObject.Find(clickedObjectName).tag == "LezkaOstraya")
                 {
                     firstLezka = Instantiate(Resources.Load<GameObject>("Prefabs/OstrayaLezkaPrefab"), osnovaKatushki.transform.position, Quaternion.Euler(90, 0, 180));
                     secondLezka = Instantiate(Resources.Load<GameObject>("Prefabs/OstrayaLezkaPrefab"), osnovaKatushki.transform.position, Quaternion.Euler(-90, -270, 90));
+                    firstLezka.transform.parent = osnovaKatushki.transform;
+                    secondLezka.transform.parent = osnovaKatushki.transform;
+                    newType = GameController.LineType.Strong;
+                    GameController.sumOstraya++;
                 }
                 if (GameObject.Find(clickedObjectName).tag == "LezkaSlabaya")
                 {
                     firstLezka = Instantiate(Resources.Load<GameObject>("Prefabs/SlabayaLezkaPrefab"), osnovaKatushki.transform.position, Quaternion.Euler(90, 0, 180));
                     secondLezka = Instantiate(Resources.Load<GameObject>("Prefabs/SlabayaLezkaPrefab"), osnovaKatushki.transform.position, Quaternion.Euler(-90, -270, 90));
+                    firstLezka.transform.parent = osnovaKatushki.transform;
+                    secondLezka.transform.parent = osnovaKatushki.transform;
+                    newType = GameController.LineType.Weak;
+                    GameController.sumSlabaya++;
                 }
                 if (GameObject.Find(clickedObjectName).tag == "LezkaSrednya")
                 {
                     firstLezka = Instantiate(Resources.Load<GameObject>("Prefabs/SrednyaLezkaPrefab"), osnovaKatushki.transform.position, Quaternion.Euler(90, 0, 180));
                     secondLezka = Instantiate(Resources.Load<GameObject>("Prefabs/SrednyaLezkaPrefab"), osnovaKatushki.transform.position, Quaternion.Euler(-90, -270, 90));
+                    firstLezka.transform.parent = osnovaKatushki.transform;
+                    secondLezka.transform.parent = osnovaKatushki.transform;
+                    newType = GameController.LineType.Medium;
+                    GameController.sumSrednya++;
                 }
-                
-                firstLezka.transform.parent = osnovaKatushki.transform;
-                secondLezka.transform.parent = osnovaKatushki.transform;
 
-                trimmer.transform.localPosition = new Vector3(0f, -0.3f, 0.8f);
-                trimmer.transform.localRotation = Quaternion.Euler(-90, 0, -88);
+                
+
 
                 if (secondLezka != null && firstLezka != null)
                 {
-                    GameController.lezkaInKatushka = true;
+                    trimmer.transform.localPosition = new Vector3(0f, -0.3f, 0.8f);
+                    trimmer.transform.localRotation = Quaternion.Euler(-90, 0, -88);
+
+                    GameController.Instance.usedSpools++;
+                    GameController.Instance.currentLineType = newType;
+                    if (GameController.Instance.currentLineType == GameController.LineType.Medium)
+                    {
+                        GameController.Instance.maxDurability = 100;
+                        GameController.Instance.lineDurability = 100;
+                    }
+                    if (GameController.Instance.currentLineType == GameController.LineType.Strong)
+                    {
+                        GameController.Instance.maxDurability = 50;
+                        GameController.Instance.lineDurability = 50;
+                    }
+                    if (GameController.Instance.currentLineType == GameController.LineType.Weak)
+                    {
+                        GameController.Instance.maxDurability = 200;
+                        GameController.Instance.lineDurability = 200;
+                    }
                     currentState = TaskControllerEnum.MowingHasBegun;
+                    GameController.Instance.UpdateUI();
                 }
             }
             if (currentState == TaskControllerEnum.TrimmerIsInPreparatoryState)
@@ -201,6 +244,18 @@ namespace Assets
             }
             if(currentState == TaskControllerEnum.MowingHasBeenSuspended)
             {
+                if (firstLezka != null)
+                {
+                    Debug.Log("Destroying firstLezka");
+                    Destroy(firstLezka);
+                    firstLezka = null;
+                }
+                if (secondLezka != null)
+                {
+                    Debug.Log("Destroying secondLezka");
+                    Destroy(secondLezka);
+                    secondLezka = null;
+                }
                 trimmer.transform.localPosition = new Vector3(-0.7f, 0f, 0.7f);
                 trimmer.transform.localRotation = Quaternion.Euler(-180, 120, -88);
             }
