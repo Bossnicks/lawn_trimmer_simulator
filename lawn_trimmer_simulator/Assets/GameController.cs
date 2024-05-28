@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
     public enum LineType { Weak, Medium, Strong }
     public LineType currentLineType;
     public static int sumOstraya = 0;
-    public static int sumSrednya = 0;
+    public static int sumSrednya = 1;
     public static int sumSlabaya = 0;
 
 
@@ -18,12 +18,13 @@ public class GameController : MonoBehaviour
     public float maxDurability;
     public int usedSpools = 1;
     private int flowerPenalty = 10;
-    public int score = 0;
+    public static int score = 0;
 
     private TextMeshProUGUI lineStatusText;
-    private TextMeshProUGUI scoreText;
+    //private TextMeshProUGUI scoreText;
     private TextMeshProUGUI spoolsText;
     private TextMeshProUGUI lineTypeText;
+    public static int flowerCount = 0;
 
     private void Awake()
     {
@@ -41,7 +42,7 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         lineStatusText = GameObject.Find("LineDurability").GetComponent<TextMeshProUGUI>();
-        scoreText = GameObject.Find("Scope").GetComponent<TextMeshProUGUI>();
+        //scoreText = GameObject.Find("Scope").GetComponent<TextMeshProUGUI>();
         spoolsText = GameObject.Find("UsedSpools").GetComponent<TextMeshProUGUI>();
         lineTypeText = GameObject.Find("CurrentLineType").GetComponent<TextMeshProUGUI>();
         currentLineType = LineType.Medium;
@@ -57,13 +58,13 @@ public class GameController : MonoBehaviour
         switch (currentLineType)
         {
             case LineType.Weak:
-                maxDurability = 500f;
-                break;
-            case LineType.Medium:
                 maxDurability = 200f;
                 break;
-            case LineType.Strong:
+            case LineType.Medium:
                 maxDurability = 100f;
+                break;
+            case LineType.Strong:
+                maxDurability = 50f;
                 break;
         }
 
@@ -115,10 +116,17 @@ public class GameController : MonoBehaviour
         UpdateUI();
     }
 
+    public bool CheckObjectsWithTag(string tag)
+    {
+        GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag(tag);
+        return objectsWithTag.Length != 0;
+    }
+
+
     public void UpdateUI()
     {
         lineStatusText.text = $"Line Durability: {lineDurability}/{maxDurability}";
-        scoreText.text = $"Score: {score}";
+        //scoreText.text = $"Score: {score}";
         spoolsText.text = $"Used Spools: {usedSpools}";
         lineTypeText.text = $"Line Type: {currentLineType}";
     }

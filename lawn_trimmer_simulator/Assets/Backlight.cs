@@ -73,13 +73,13 @@ namespace Assets
                 case TaskControllerEnum.TrimmerIsInPreparatoryState:
                     return "Заправьте лезку в косилку";
                 case TaskControllerEnum.TrimmerIsFilledWithFishingLine:
-                    return "Идите на задний двор и возьмите триммер";
+                    return "Возьмите косилку";
                 case TaskControllerEnum.MowingHasBegun:
-                    return "Идите на задний двор и возьмите триммер";
+                    return "Косите траву, пока не закончится леска";
                 case TaskControllerEnum.MowingHasBeenSuspended:
-                    return "Идите на задний двор и возьмите триммер";
+                    return "Возьмите новую, подходящую по остроте леску";
                 case TaskControllerEnum.MowingStopped:
-                    return "Идите на задний двор и возьмите триммер";
+                    return "Игра окончена, на таблице можете увидеть свой результат";
                 default:
                     return "";
 

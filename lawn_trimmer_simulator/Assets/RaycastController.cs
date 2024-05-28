@@ -11,6 +11,7 @@ namespace Assets
         public float rayDistance = 100f; // Дистанция луча
         private string clickedObjectName;
         private TrimmerController trimmerController;
+        private GameObject tableA;
         public static TextMeshProUGUI hintText;
         private Camera playerCamera;
         private Camera explorerCamera;
@@ -23,12 +24,17 @@ namespace Assets
         GameObject firstLezka;
         GameObject secondLezka;
         GameObject statistic;
+        GameObject about;
         private static GameController.LineType newType;
         private float rotationSpeed = 10f;
         private bool study = true;
 
 
         GameObject trimmer;
+        private GameObject aboutImg;
+        public static GameObject enterField;
+        public static GameObject inputField;
+
         //Transform trimmerTransform;
 
 
@@ -49,9 +55,19 @@ namespace Assets
             explorerCamera.enabled = false;
             playerCamera.enabled = true;
             hintText = hint.GetComponent<TextMeshProUGUI>();
-            hintText.text = "Идите на задний двор и возьмите триммер";
+            //hintText.text = "Идите на задний двор и возьмите триммер";
             trimmer = GameObject.Find("Trimmer");
             trimmerController = trimmer.GetComponent<TrimmerController>();
+            tableA = GameObject.Find("TableA");
+            about = GameObject.Find("About");
+            about.SetActive(false);
+            aboutImg = GameObject.Find("AboutImg");
+            enterField = GameObject.Find("EnterFieldBackground");
+            inputField = GameObject.Find("InputField");
+            tableA.SetActive(false);
+            aboutImg.SetActive(false);
+            enterField.SetActive(false);
+            inputField.GetComponent<InputField>().placeholder.GetComponent<Text>().text = "asd"; 
         }
 
         void Update()
@@ -64,7 +80,10 @@ namespace Assets
             {
                 PerformRaycastRightClick();
             }
-            
+            if(currentState != TaskControllerEnum.TrimmerIsInPreparatoryState)
+            {
+                hintText.text = Backlight.HintToState();
+            }
         }
 
         void PerformRaycastLeftClick()
@@ -107,6 +126,7 @@ namespace Assets
                 }
                 if (currentState == TaskControllerEnum.TrimmerIsFilledWithFishingLine)
                 {
+                    about.SetActive(false);
                     firstPersonCharacter.crosshairImage = crossHairImage;
                     currentState = TaskControllerEnum.MowingHasBegun;
                     trimmerController.Rotate();
@@ -197,6 +217,7 @@ namespace Assets
             }
             if (currentState == TaskControllerEnum.TrimmerIsInPreparatoryState)
             {
+                about.SetActive(true);
                 if(currentStudyState == StudyTaskControllerEnum.OpenKatushka && clickedObjectName == "corpusKatushki")
                 {
                     AnimationController.BeginAnimate(clickedObjectName);
@@ -232,9 +253,18 @@ namespace Assets
                     //todo
                     //animate of lezka
                 }
-
+                
             }
-            
+            if (!GameController.Instance.CheckObjectsWithTag("Kistochka") && !GameController.Instance.CheckObjectsWithTag("Fornios") && !GameController.Instance.CheckObjectsWithTag("Lopuh"))
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                firstPersonCharacter.playerCanMove = false;
+                currentState = TaskControllerEnum.MowingStopped;
+                enterField.SetActive(true);
+                
+            }
+
         }
         void PerformRaycastRightClick()
         {
